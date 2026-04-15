@@ -1,7 +1,13 @@
 import streamlit as st
 from google import genai
 from google.genai import types
+from dotenv import load_dotenv
+import os
 
+'''
+load_dotenv()
+gemini_api_key = os.getenv('GOOGLE_API_KEY')
+'''
 api_key = st.secrets["GEMINI_API_KEY"]
 client = genai.Client(api_key=api_key)
 
