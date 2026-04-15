@@ -43,12 +43,12 @@ def summarize_txt(file_path: str): # ①
 
 if __name__ == '__main__':
     # 테스트를 위해 본인의 PC 환경에 맞는 경로로 수정해야 할 수 있습니다.
-    file_path = './chap04/data/과정기반 작물모형을 이용한 웹 기반 밀 재배관리 의사결정 지원시스템 설계 및 구축_with_preprocessing.txt'
+    file_path = 'chap04(pdf요약)\data\블록형 프로그래밍 언어와 텍스트형 프로그래밍 언어의 교육적 효과 비교 분석_with_preprocessing.txt'
 
     summary = summarize_txt(file_path)
     print(summary)
 
     # ⑤ 요약된 내용을 파일로 저장한다.
     # 저장할 폴더(output)가 미리 만들어져 있어야 에러가 나지 않습니다.
-    with open('./chap04/output/crop_model_summary.txt', 'w', encoding='utf-8') as f:
+    with open('./chap04(pdf요약)/output/crop_model_summary.txt', 'w', encoding='utf-8') as f:
         f.write(summary)
