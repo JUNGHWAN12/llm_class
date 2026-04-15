@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-client = genai.Client()
+gemini_api_key = os.getenv('GOOGLE_API_KEY')
+client = genai.Client(api_key=gemini_api_key)
 
 st.title("🤖 Gemini 멀티턴 챗봇")
 st.write("Streamlit 화면에서 대화 이력을 기억하며(Multi-turn) 답변하는 챗봇입니다.")
