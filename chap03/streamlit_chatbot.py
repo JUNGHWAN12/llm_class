@@ -1,14 +1,38 @@
 import streamlit as st
-import random
-import time
+from google import genai
+from google.genai import types
+from dotenv import load_dotenv
+import os
 
-st.write("Streamlit loves LLMs! 🤖 [Build your own chat app](https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps) in minutes, then make it powerful by adding images, dataframes, or even input widgets to the chat.")
+load_dotenv()
+client = genai.Client()
 
-st.caption("Note that this demo app isn't actually connected to any LLMs. Those are expensive ;)")
+st.title("🤖 Gemini 멀티턴 챗봇")
+st.write("Streamlit 화면에서 대화 이력을 기억하며(Multi-turn) 답변하는 챗봇입니다.")
 
-# Initialize chat history
+# ① AI 응답을 받아오는 함수 (멀티턴)
+def get_ai_response(messages_dict):
+    # Streamlit의 딕셔너리 리스트를 Gemini의 types.Content 리스트로 변환
+    history_list = []
+    for msg in messages_dict:
+        role = "model" if msg["role"] == "assistant" else "user"
+        history_list.append(
+            types.Content(role=role, parts=[types.Part.from_text(text=msg["content"])])
+        )
+    
+    response = client.models.generate_content(
+        model="models/gemini-2.5-flash-lite",
+        contents=history_list,  # 누적된 대화 기록 리스트를 통째로 전달
+        config=types.GenerateContentConfig(
+            temperature=0.9,
+            system_instruction="너는 사용자를 도와주는 상담사야."  # 시스템 프롬프트 설정
+        )
+    )
+    return response.text
+
+# Initialize chat history (대화 이력 초기화)
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Let's start chatting! 👇"}]
+    st.session_state.messages = []
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
@@ -16,30 +40,19 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Accept user input
-if prompt := st.chat_input("What is up?"):
-    # Add user message to chat history
+if prompt := st.chat_input("메시지를 입력하세요..."):
+    # 1. 사용자 메시지를 대화 기록에 추가
     st.session_state.messages.append({"role": "user", "content": prompt})
-    # Display user message in chat message container
+    
+    # 화면에 사용자 메시지 표시
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Display assistant response in chat message container
+    # 2. 누적된 대화 기록을 보내서 AI 응답 받아오기
     with st.chat_message("assistant"):
-        message_placeholder = st.empty()
-        full_response = ""
-        assistant_response = random.choice(
-            [
-                "Hello there! How can I assist you today?",
-                "Hi, human! Is there anything I can help you with?",
-                "Do you need help?",
-            ]
-        )
-        # Simulate stream of response with milliseconds delay
-        for chunk in assistant_response.split():
-            full_response += chunk + " "
-            time.sleep(0.05)
-            # Add a blinking cursor to simulate typing
-            message_placeholder.markdown(full_response + "▌")
-        message_placeholder.markdown(full_response)
-    # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": full_response})
+        with st.spinner("AI가 답변을 작성하고 있습니다..."):
+            ai_response = get_ai_response(st.session_state.messages)
+        st.markdown(ai_response)
+        
+    # 3. 받아온 AI 응답도 대화 기록 리스트에 추가
+    st.session_state.messages.append({"role": "assistant", "content": ai_response})
