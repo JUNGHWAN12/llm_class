@@ -1,0 +1,1286 @@
+블록형 프로그래밍 언어와 텍스트형 프로그래밍 언어의
+교육적 효과 비교 분석
+1)
+최현재․김갑수
+서울교육대학교 컴퓨터교육과
+요약
+디지털 대전환 시대에 따라 컴퓨팅 사고력 기반의 프로그래밍 교육의 중요성이 강조되고 있으며, 프로그래밍 언
+어의 종류에 따른 교육적 효과를 분석할 필요성이 커지고 있다. 본 연구에서는 학습 영역, 학습 요소 그리고 학습 
+단계를 설계 기준으로 설정하여 프로그래밍 교육 프로그램을 개발하였다. 이후, 한 집단에는 블록형 프로그래밍 
+언어, 다른 한 집단에는 텍스트형 프로그래밍 언어를 활용하여 교육 프로그램을 적용하고 그 효과를 분석하였다. 
+분석 결과, 프로그램 적용 이후 두 집단 모두 컴퓨팅 사고력에서 통계적으로 유의미한 수준의 변화가 확인되었으
+며, 블록형과 텍스트형 프로그래밍 언어의 종류가 컴퓨팅 사고력 향상에 미치는 영향은 차이가 없었다. 또한, 
+블록형 프로그래밍 언어를 활용한 집단은 정의적 역량에서 긍정적인 변화가 확인되었으며 텍스트형 프로그래밍 
+언어를 활용한 집단은 정의적 역량에서 긍정적인 변화를 확인할 수 없었고, 토픽 모델링 기법을 활용한 분석을 통
+해 각 프로그래밍 언어가 학생들의 프로그래밍 교육에 대한 태도에 미치는 영향을 확인하였다.
+키워드 : 블록형 프로그래밍 언어, 텍스트형 프로그래밍 언어, 프로그래밍 교육, 컴퓨팅 사고력, 정의적 역량
+A Comparative Analysis of the Educational Effects of Block-type 
+Programming Languages and Text-type Programming Languages
+Hyunjae Choi․Kapsu Kim
+Dept. of Computer Education, Seoul National University of Education
+Abstract
+In the era of digital transformation, the importance of programming education based on CT is being emphasized 
+and the need to analyze the educational effects of the types of programming languages is increasing. In this 
+study, the education program was developed by learning domains, learning elements and learning phases. After 
+that, block-type programming language was applied to one group and a text-type programming language to the 
+other group, and its effect was analyzed. As a result, a statistically significant change in CT was confirmed in 
+both groups, and there was no difference in the effect the types of block-type and text-type languages on im-
+proving CT. In addition, the group using block-type languages confirmed positive changes in affective competency, 
+and the group using text-type languages could not confirm positive changes in affective competency, and the ef-
+fect of programming languages on students' attitudes was confirmed through analysis using topic modeling.
+Keywords : Block-type programming language, Text-type programming language, Programming education, 
+Computational thinking(CT), Affective competency 
+본 논문은 저자의 2024학년도 석사학위 논문의 일부 내용을 수정 보완한 것임.
+교신저자 : 김갑수(서울교육대학교 컴퓨터교육과)
+논문투고 : 2024-05-24
+논문심사 : 2024-07-01
+심사완료 : 2024-07-01
+Journal of The Korean Association 
+of Information Education Vol. 28, No. 4, 
+August 2024, pp. 387-397
+http://dx.doi.org/10.14352/jkaie.2024.28.4.387
+© 2024 KAIE
+388   정보교육학회논문지 제28권 제4호
+1. 서론
+현재는 디지털 대전환의 시대이다. 사회 구조가 
+디지털 기반으로 변화하고 있으며, 사물인터넷과 같
+은 신기술이 빠르게 사회에 활용되고 있고, 정부 정
+책도 디지털 대전환에 맞게 도입되고 있다. 이에 대
+한민국 정부는 2022년 120대 국정과제를 발표하였
+다. 이 중 교육 부문 국정과제의 첫 번째로 ‘100만 
+디지털인재 양성’을 제시하였다. 이 과제는 디지털 
+대전환 시대에 부응하는 교육 기반을 조성하고 핵
+심 인재를 양성하는 것을 목표로 하고 있다.
+2022 개정 교육과정 총론에는 교육과정 구성의 중
+점 중 하나로 모든 학생이 언어·수리 소양뿐만 아니
+라 디지털 기초소양을 갖출 것을 제시하고 있으며, 
+정보교육 시수를 2015년에 비해 2배 이상의 시수를 
+배정하였다[1]. 2022 개정 실과/정보과 교육과정에서
+는 정보 교과의 교과 역량 중 하나로 ‘컴퓨팅 사고
+력’을 제시하였다. 특히, 초등 정보교육에서는 교수·
+학습 시 ‘컴퓨팅 사고력’ 함양을 위한 적절한 교수·
+학습방법을 활용할 것을 제시하고 있다[2]. 또한, 정
+보교육을 확대 편성 및 운영 시 활용할 정보교육과
+정 부록을 제시했는데, 중등 ‘알고리즘과 프로그래
+밍’ 영역에서 프로그래밍 학습을 할 때 초등에서 학
+습한 프로그래밍 교육 내용을 바탕으로 학습할 것을 
+제시하고 있다[2]. 프로그래밍 교육에서는 학생의 수
+준에 맞는 프로그래밍 언어를 선택하도록 제시되어 
+있는데, 초기에는 주로 블록형 프로그래밍 언어를 
+활용한 교육이 진행되었다. 왜냐하면 블록형 프로그
+래밍 언어는 문법에 대한 학습이 거의 없고 블록을 
+드래그 앤 드롭하여 코딩을 하기에 학습에 대한 부
+담이 적기 때문이다[3, 4]. 하지만 블록형 프로그래
+밍 언어는 기능이 제한적이고 다른 소프트웨어 개발
+과 연계가 어려워 텍스트형 프로그래밍 언어를 활용
+한 교육의 필요성이 제기되고 있으며, 텍스트형 프
+로그래밍 언어의 활용이 증가하고 있다[5].
+초등학교 프로그래밍 교육 연구는 꾸준히 진행되
+어 왔다. 2000년에 시작되어 2008년 이후 본격적으
+로 진행되었고 2015년 이후에는 프로그래밍 교육이 
+SW 교육 전반에 포함되어 연구가 진행되었다. 프로
+그래밍 교육의 연구 분야를 살펴보면, 컴퓨팅 사고
+력 등의 인지적 역량에 관련된 연구가 태도, 인식 
+등의 정의적 역량에 관련된 연구보다 약 2배 정도 
+많았다[5]. 이는 프로그래밍 교육 연구가 주로 인지
+적 역량에 초점을 맞추고 있으며 정의적 역량과 관
+련된 연구는 다소 부족하다는 것을 알 수 있다.
+본 연구는 디지털 대전환 시대의 흐름에 따라 컴
+퓨팅 사고력 기반의 프로그래밍 교육의 필요성이 
+커지고 있다는 점, 블록형 프로그래밍 언어를 활용
+한 프로그래밍 교육뿐만 아니라 텍스트형 프로그래
+밍 언어를 활용한 프로그래밍 교육도 필요하다는 
+점 그리고 프로그래밍 교육에서 인지적 역량뿐만 
+아니라 정의적 역량에 관한 연구도 필요하다는 점
+에서 출발하였다.
+이에 본 연구에서는 프로그래밍 교육 프로그램을 
+설계하고 이를 블록형 프로그래밍 언어와 텍스트형 프
+로그래밍 언어를 활용해 학생들에게 각각 적용하여 컴
+퓨팅 사고력과 정의적 역량에 미치는 영향 차이를 분
+석하고자 한다. 본 연구의 연구 문제는 다음과 같다.
+1) 블록형 프로그래밍 언어를 활용한 프로그래밍 
+교육과 텍스트형 프로그래밍 언어를 활용한 프로그
+래밍 교육이 학생들의 컴퓨팅 사고력에 미치는 영
+향은 어떠한 차이가 있는가?
+2) 블록형 프로그래밍 언어를 활용한 프로그래밍 
+교육과 텍스트형 프로그래밍 언어를 활용한 프로그
+래밍 교육이 학생들의 프로그래밍 교육에 대한 정
+의적 역량에 미치는 영향은 어떠한 차이가 있는가?
+본 연구에서는 초등학교 6학년 2학급 42명의 학
+습자를 대상으로 7주간 14차시의 프로그래밍 교육 
+프로그램을 적용하였다. 1개 학급에는 블록형 프로
+그래밍 언어, 다른 1개 학급에는 텍스트형 프로그래
+밍 언어를 활용한 교육을 진행하였고 이 과정에서 
+학습자의 컴퓨팅 사고력과 정의적 역량에 유의미한 
+차이가 있는지 살펴보았다.
+본 연구는 블록형 프로그래밍 언어를 블록형 언
+어로, 텍스트형 프로그래밍 언어를 텍스트형 언어로 
+명명하여 사용한다.
+블록형 프로그래밍 언어와 텍스트형 프로그래밍 언어의 교육적 효과 비교 분석   389
+2. 이론적 배경
+2.1. 프로그래밍 교육
+2.1.1. 블록형 언어를 활용한 프로그래밍 교육
+블록형 언어는 텍스트를 직접 입력하는 대신 블
+록 형태의 프로그램 요소를 조작하여 프로그램을 
+개발하는 프로그래밍 언어를 말한다. 학생들이 명령
+어나 문법을 따로 익힐 필요가 없어 학습에 대한 
+부담이 없다는 장점이 있다[3]. 또한, 문법적으로 성
+립할 때만 블록 결합이 가능하기에 실패에 대한 부
+담을 줄일 수 있다[4]. 하지만 블록형 언어는 확장
+성이 낮고 기능이 제한적이기 때문에 응용 소프트
+웨어 개발과 연계하기 어렵다는 단점이 있다[6].
+블록형 언어를 활용한 프로그래밍 교육의 효과를 
+검증한 연구는 다음과 같다. 김재휘와 김동호(2016)
+는 초등학교 6학년 학생들을 두 집단으로 구분하여 
+각각 엔트리와 엔트리 및 센서보드를 활용한 교육
+을 적용한 뒤 컴퓨팅 사고력의 변화를 분석하였고, 
+두 집단 모두 컴퓨팅 사고력이 향상됨을 검증하였
+다[7]. 이상현과 안성훈(2020)은 초등학교 6학년 학
+생들에게 온라인 학습 환경에서 엔트리 프로그래밍 
+교육을 적용하여 학습 경험에 대한 인식을 양적 및 
+질적으로 분석하였다[8]. 그 결과 엔트리 프로그래
+밍 교육에 대한 학생들의 학습 만족도가 높다는 것
+을 검증하였으며, 학생들은 자신의 의도대로 블록을 
+조작하며 프로그래밍하는 것에 성취감을 느낀다는 
+결과를 제시하였다.
+2.1.2. 텍스트형 언어를 활용한 프로그래밍 교육
+텍스트형 언어란 컴퓨터에 내릴 명령 구문을 문
+자로 입력하는 프로그래밍 언어를 말한다. 텍스트형 
+언어를 원활하게 사용하기 위해서는 정확한 문법을 
+익혀야 한다는 단점이 있지만 언어 사용에 익숙해
+진다면 프로그래밍 시간이 단축되고 여러 소프트웨
+어 개발과 연결하기 쉽다는 장점이 있다[3].
+텍스트형 언어를 활용한 프로그래밍 교육의 효과
+를 
+검증한 
+연구는 
+다음과 
+같다. 
+장원영과 
+김성식
+(2020)은 자동평가시스템을 활용한 프로그래밍 교육
+에서 블록형 언어와 텍스트형 언어 간 자기효능감의 
+차이를 분석하였는데, 텍스트형 언어를 활용한 집단
+은 활동시작 능력기대와 활동지속 능력기대가 유의
+미하게 
+감소됨을 
+검증하였다[9]. 
+고학능과 
+이영준
+(2023)은 초등학교 고학년 학생들에게 블록형 언어를 
+선행조직자로 한 파이썬 교육을 적용하여 인지 부하
+를 측정하였으며, 직접 교수 전략을 활용한 교육보다 
+교육의 인지 부하가 더 낮음을 검증하였다[10].
+2.2. 컴퓨팅 사고력
+컴퓨팅 사고력의 개념은 1996년 MIT의 Seymour 
+Papert에 의해 처음 사용되었으며, 이후 Wing(2006)
+이 ‘컴퓨터 과학의 개념을 바탕으로 문제를 해결하
+고 시스템을 설계하고 인간의 행동을 이해하는 것’
+을 컴퓨팅 사고력이라고 정의했다[11]. Wing(2006)
+은 컴퓨팅 사고력의 구성 요소로 분해, 개념화, 추상
+화, 자동화, 재귀적 사고, 병렬처리를 제시하였다[11].
+ISTE&CSTA(2011)는 컴퓨팅 사고력의 구성 요
+소로 자료 수집, 자료 분석, 자료 제시, 문제 분해, 
+추상화, 알고리즘 및 절차, 자동화, 시뮬레이션, 병렬
+화를 제시하였다[12].
+국내에서도 컴퓨팅 사고력의 정의 및 구성 요소
+를 
+다양하게 
+제시하고 
+있다. 
+한국과학창의재단
+(2014)은 Wing의 정의에서 출발하여 컴퓨팅 사고력
+을 ‘컴퓨팅 시스템의 역량을 활용하여 해결하고자 
+하는 문제를 효과적이고 효율적으로 해결할 수 있
+는 절차적 사고 능력’으로 정의하였다[13].
+교육부(2015)는 소프트웨어 교육 운영 지침에 컴
+퓨팅 사고력을 ‘실생활에서 발생하는 복잡한 문제를 
+효과적이고 효율적으로 해결하기 위해 컴퓨팅의 기
+본적인 개념과 원리를 활용하는 인간의 사고과정 
+또는 종합적인 능력’이라고 정의하였다[14].
+한국교육학술정보원(2017)은 
+2017년 
+소프트웨어 
+교육 효과성 측정도구 개발 연구에서 ISTE&CSTA
+(2011)의 연구결과를 근간으로 하여 컴퓨팅 사고력
+의 구성요소를 ‘자료수집’, ‘자료분석’, ‘자료표현’, ‘문
+제분해’, ‘추상화’, ‘알고리즘’, ‘자동화’, ‘테스팅’, ‘적
+용과 일반화’ 9가지로 제시하였다[15].
+390   정보교육학회논문지 제28권 제4호
+2.3. 프로그래밍 교육에 대한 정의적 역량
+프로그래밍 교육에 대한 정의적 역량은 Luxton- 
+Reilly(2018)의 분류를 고려할 때 태도, 인식, 참여 
+및 동기로 나눌 수 있다[5]. 2022년까지 정의적 역
+량을 측정한 국내 초등학교 프로그래밍 교육 연구 
+수는 태도와 관련된 연구가 30편으로 가장 많았으
+며, 인식과 관련된 연구는 8편, 참여 및 동기와 관
+련된 연구는 7편이었다[5].
+프로그래밍 교육에 대한 정의적 역량을 측정한 
+연구는 다음과 같다. 임건웅과 김창석(2016)은 정의
+적 역량 중 태도와 관련된 연구를 하였으며, 모듈형 
+로봇 프로그래밍 교육이 정보교과 학습동기에 긍정
+적 영향을 미침을 검증하였다[16]. 한국교육학술정
+보원(2017)은 정의적 역량 중 인식, 참여 및 동기와 
+관련된 연구를 하였으며, 학교급과 성별에 따른 학
+생들의 SW교육에 대한 인식과 참여 및 동기의 차
+이를 제시하였다[15].
+3. 연구 방법
+3.1. 연구 대상
+본 연구는 서울특별시에 위치한 M 초등학교 6학년 
+2개 학급 학생 42명으로 대상으로 실시하였다. 2개 
+학급 모두 남자 10명, 여자 11명 총 21명으로 구성되
+어 있다. 2개 학급 중 1개의 학급에는 블록형 언어 
+중 하나인 엔트리를 활용한 프로그래밍 교육을 적용
+하였고, 다른 1개의 학급에는 텍스트형 언어 중 하나
+인 파이썬을 활용한 프로그래밍 교육을 적용하였다.
+3.2. 실험 설계
+본 연구에서는 교육 프로그램 적용 이후, ‘컴퓨팅 
+사고력’과 ‘프로그래밍 교육에 대한 정의적 역량’의 
+변화를 조사하기 위해 <Table 1>과 같이 실험 설
+계를 하였다. 구체적으로 ‘컴퓨팅 사고력’ 검사 도구
+와 ‘프로그래밍 교육에 대한 정의적 역량’ 검사 도
+구를 사용하여 사전 검사를 진행한 후, 같은 교육 
+프로그램을 프로그래밍 언어만 달리하여 두 집단에 
+적용하였으며, 수업 종료 후 사후 검사 도구를 사용
+하여 사후 검사를 실시하였다.
+G1
+O1
+X1
+O2
+G2
+O3
+X2
+O4
+G1 : The group using block-type language
+G2 : The group using text-type language
+O1, O3 : Pre-examination (CT, Affective competency)
+O2, O4 : Post-examination (CT, Affective competency)
+X1 : Programming education using block-type language
+X2 : Programming education using text-type language
+<Table 1> Experimental Design Model
+또한, 양적 분석의 한계를 보완하기 위해 각 수업 
+종료 후 학생들의 학습일지 데이터를 수집하였으며, 
+이를 정의적 역량에 대한 질적 분석에 활용하였다.
+3.3. 검사 도구
+3.3.1. 컴퓨팅 사고력 검사 도구
+본 연구에서는 한국교육학술정보원(2017)이 개발
+한 초등학생용 컴퓨팅 사고력 측정 도구를 활용하
+였다[15]. 한국교육학술정보원(2017)은 ISTE&CSTA 
+(2011)의 연구결과를 바탕으로 컴퓨팅 사고력의 구
+성요소를 새롭게 제시하였으며, 이로 구성된 SW 관
+련 역량을 정의하였다. 정의된 SW 관련 역량은 자
+료수집, 
+자료분석, 
+자료표현으로 
+구성된 
+분석능력, 
+문제분해, 추상화, 알고리즘으로 구성된 모델링 능
+력, 자동화, 테스팅으로 구성된 구현 능력, 적용과 
+일반화로 구성된 일반화 능력 4가지이며, 한국교육
+학술정보원(2017)은 이 4가지 역량을 검사 요인으로 
+하여 컴퓨팅 사고력 측정 도구를 개발하였다[15].
+선행연구에서 
+이 
+검사 
+도구의 
+Cronbach’s 
+α는 
+0.780, 문항 난이도는 평균 0.50로 적절했으며, 문항 
+변별도는 평균 0.422로 우수한 문항으로 평가되었다
+[15]. 본 연구에서 이 검사 도구의 Cronbach’s α는 
+블록형 집단은 0.779, 텍스트형 집단은 0.787로 적절
+하게 나타났다.
+블록형 프로그래밍 언어와 텍스트형 프로그래밍 언어의 교육적 효과 비교 분석   391
+3.3.2. 정의적 역량 검사 도구
+본 연구에서는 프로그래밍 교육에 대한 학생들의 
+정의적 역량을 태도, 인식, 참여 및 동기 3가지로 
+분류하여 검사를 실시했다. 먼저, 인식과 참여 및 
+동기 검사는 한국교육학술정보원(2017)의 ‘SW 교육
+에 대한 학생의 인식 조사’를 사용하였다[17]. 본 연
+구에서는 연구 목적에 맞게 ‘사회 변화’, ‘유용성’, 
+‘진학’ 3개의 영역을 사용했으며, ‘SW 교육’이란 용
+어를 ‘프로그래밍 교육’으로 변환하였다. 인식 검사
+는 리커트형 설문 10개 문항으로 구성되어 있으며, 
+참여 및 동기 검사는 ‘예’ 또는 ‘아니오’를 선택하는 
+2지선다형 설문 6개 문항으로 구성되어 있다.
+다음으로, 태도를 분석하기 위해 학생들의 학습일
+지를 수집하였다. 학습일지의 주제는 선행연구에서 
+태도의 하위항목으로 가장 많이 제시되었던 흥미와 
+관련된 주제 세 가지를 선정하였으며, 학생들은 각 
+수업 종료 후 학습일지를 작성하여 제출하였다.
+3.4. 교육 프로그램 설계
+3.4.1. 학습 영역
+Brennan&Resnick(2012)은 컴퓨팅 사고력의 역량
+을 과정에 초점을 두는 컴퓨팅 사고력 프레임워크
+를 제시하였다[18]. 최형신 외(2014)는 이를 정리하
+여 컴퓨팅 사고력 프레임워크의 세 가지 차원인 ‘컴
+퓨팅 사고력 개념’, ‘컴퓨팅 사고력 수행’, ‘컴퓨팅 사
+고력 관점’과 이를 구성하는 개념을 제시하였다[19].
+김갑수 외(2020)는 SW교육 표준 모델의 내용 체
+계에서 프로그래밍 교육과 관련된 내용요소를 제시
+하였는데[20], Brennan&Resnick(2012)의 컴퓨팅 사
+고력 프레임워크의 구성요소와 김갑수 외(2020)의 
+프로그래밍 교육과 관련된 내용요소를 비교해 볼 
+때 프로그래밍 교육과 관련된 내용요소는 컴퓨팅 
+사고력 프레임워크의 구성요소를 반영한다고 판단
+하였다. 따라서 본 연구는 ‘프로그래밍 개념’, ‘프로
+그래밍 수행’, ‘프로그래밍 관점’이라는 3가지 학습 
+영역을 설정하여 교육 프로그램을 개발하였다.
+3.4.2. 학습 요소
+김갑수 외(2020)의 SW교육 표준 모델의 내용 체
+계는 5개의 대수준으로 구분되어 있으며[20], 이 중 
+프로그래밍 교육과 관련된 ‘알고리즘과 프로그래밍’
+의 내용 요소를 참고하여 학습 요소를 구성하였다. 
+본 연구의 연구 대상인 초등학교 6학년의 학습 수
+준에 적절하고 프로그래밍 언어의 종류와 관계없이 
+학습할 수 있는 내용 요소를 추출하였다. 추출한 내
+용 요소를 학습 영역에 따라 정리한 학습 요소는 
+<Table 2>와 같다.
+Learning 
+Domains
+Learning Elements
+Programming
+Concepts
+∙Understanding, Decomposing the problem
+∙Searching necessary information, Exploring 
+and applying for solving the problems
+∙Expressing algorithms (Flow chart)
+∙Sequential structure, Repetitive structure, 
+Selective structure, Program concept
+Programming
+Practices
+∙Implement sequential structures, 
+repetitive structures, selective structures
+∙Input/output and variables, Data type, 
+Arithmetic, Logic, Comparison operation
+∙Implement various programs, Debugging
+Programming
+Perspectives
+∙Expressing the process of solving 
+problems in life
+∙Representation of algorithm
+∙Evaluation and selection of necessary 
+information for solving the problem
+<Table 2> Learning Elements Organized by Learning Domains
+3.4.3. 학습 단계
+본 교육 프로그램의 학습 단계는 앞서 제시한 한
+국교육학술정보원(2017)의 
+4가지 
+SW 
+관련 
+역량을 
+바탕으로 
+설계하였다[15]. 
+4가지 
+SW 
+관련 
+역량은 
+ISTE&CSTA(2011)의 컴퓨팅 사고력 개념 및 문제해
+결과정을 포함하고 있으며, 이는 본 교육 프로그램의 
+학습 흐름과 일치하기에 학습 단계의 설계 기준으로 
+설정했다. 이에 따라 설정한 학습 단계는 분석 단계, 
+모델링 단계, 구현 단계, 일반화 단계 총 4단계이다. 
+분석 단계는 문제 해결을 위한 자료를 수집 및 분석
+하여 패턴을 찾고, 이를 다양한 방법으로 표현하는 
+단계이다. 모델링 단계는 문제를 작은 단위로 분해하
+고 불필요한 요소를 제거하는 단계이다. 구현 단계는 
+반복적인 수행이 필요한 작업을 자동화하고 테스트
+392   정보교육학회논문지 제28권 제4호
+해보는 단계이다. 일반화 단계는 구조화된 모델을 일
+반적인 상황에 알맞게 확장하는 단계이다. 
+3.3.4. 교육 프로그램 개요
+앞서 제시한 학습 영역, 학습 요소, 학습 단계를 
+바탕으로 14차시의 교육 프로그램을 개발하였다. 교
+육 프로그램의 차시별 개요는 <Table 3>과 같다.
+4. 연구 결과
+4.1. 컴퓨팅 사고력 변화 분석 결과
+앞서 언급한 컴퓨팅 사고력 측정 도구를 활용하
+여 사전·사후 검사를 실시하였다. 독립 표본 분석에
+서 등분산성은 모두 만족함을 확인하였으며 정규성
+이 
+확인되면 
+t-test, 
+정규성이 
+위배되면 
+Mann-Whitney U test를 실시하였다. 대응 표본 분
+석에서는 정규성이 확인되면 t-test, 정규성이 위배
+되면 Wilcoxon Signed Rank test를 실시하였다.
+교육 프로그램을 적용하기 전, 학습자들의 컴퓨팅 
+사고력 사전 검사 분석 결과는 <Table 4>와 같다. 
+<Table 4>에 따르면 컴퓨팅 사고력 전체와 이를 
+구성하는 
+분석, 
+모델링, 
+구현, 
+일반화 
+능력 
+모두 
+p>.05이므로, 블록형 집단과 텍스트형 집단은 유의
+미한 차이가 없으며 동질집단임을 확인하였다.
+Sess
+ion
+Domain (⋆)
+Main Learning Element (∙)
+Topic (‣)
+Phase (∗)
+Activity (–)
+1∼2
+⋆Concepts
+⋆Perspectives
+∙Program concept
+∙Expressing the process of solving 
+problems in life
+∙Searching necessary information, 
+Exploring for solving the problems
+‣Understanding algorithms, flowcharts and expressing 
+how to solve problems in flowcharts
+∗Analysis
+∗Modeling
+–Understanding Program
+–Understanding algorithm and flowchart
+–Expressing in a flowchart
+3∼4
+⋆Concepts
+⋆Practices
+∙Input/output and variables
+∙Expressing algorithms (Flow chart)
+∙Implement programs, Debugging
+‣Understanding input/output, variables and making a 
+schedule notification program
+∗Analysis
+∗Modeling
+∗Implementation
+∗Generalization
+–Understanding input/output
+–Understanding variables
+–Making a schedule notification
+ program
+5∼6
+⋆Concepts
+⋆Practices
+∙Data type, Arithmetic operation
+∙Expressing algorithms (Flow chart)
+∙Implement programs, Debugging
+‣Understanding 
+number 
+data 
+types, 
+arithmetic 
+operators and making a time conversion program
+∗Analysis
+∗Modeling
+∗Implementation
+∗Generalization
+–Understanding number data types
+–Understanding arithmetic operators
+–Making a time conversion program
+7∼8
+⋆Concepts
+⋆Practices
+∙Data type
+∙Expressing algorithms (Flow chart)
+∙Implement programs, Debugging
+‣Understanding string data types and making an 
+encryption program
+∗Analysis
+∗Modeling
+∗Implementation
+–Understanding string data types
+–Understanding string search
+–Making an encryption program
+<Table 3> Configuration of the Education Program
+∗Generalization
+9∼
+10
+⋆Concepts
+⋆Practices
+∙Repetitive structure, Comparison operation
+∙Expressing algorithms (Flow chart)
+∙Implement programs, Debugging
+‣Understanding 
+iterative 
+structure, 
+comparison 
+operations and making a D-day notification program
+∗Analysis
+∗Modeling
+∗Implementation
+∗Generalization
+–Understanding iterative structure
+–Understanding comparison operations
+–Making a D-day notification 
+ program
+11∼
+12
+⋆Concepts
+⋆Practices
+∙Selection structure, Logical operation
+∙Expressing algorithms (Flow chart)
+∙Implement programs, Debugging
+‣Understanding selective structure, logical operations 
+and making a situational judgment program
+∗Analysis
+∗Modeling
+∗Implementation
+∗Generalization
+–Understanding logical operations
+–Understanding selective structure
+–Making a situational judgment
+ program
+13∼
+14
+⋆Practices
+⋆Perspectives
+∙Expressing the process of solving 
+problems in life
+∙Implement programs, Debugging
+‣Exploring 
+the 
+programs 
+our 
+class 
+needs 
+and 
+implementing the programs
+∗Analysis
+∗Modeling
+∗Implementation
+∗Generalization
+–Exploring our class
+–Expressing in a flowchart
+–Implementing the programs
+블록형 프로그래밍 언어와 텍스트형 프로그래밍 언어의 교육적 효과 비교 분석   393
+Factor
+(Score)
+Group
+N
+M
+SD
+t
+p
+Total
+(17)
+Block
+21
+8.81
+3.64
+189.5
+.440
+Text
+21
+9.62
+3.65
+Analysis
+(6)
+Block
+21
+3.62
+1.16
+160.5
+.125
+Text
+21
+4.29
+1.45
+Modeling
+(6)
+Block
+21
+3.52
+1.54
+-.282
+.780
+Text
+21
+3.67
+1.74
+Implemen
+tation (4)
+Block
+21
+1.14
+1.28
+229.5
+.822
+Text
+21
+1.05
+1.20
+Generaliz
+ation (1)
+Block
+21
+0.52
+0.51
+199.5
+.548
+Text
+21
+0.62
+0.50
+<Table 4> CT Pre Test Analysis
+블록형 언어를 활용한 학습자들의 컴퓨팅 사고력 
+사전·사후 검사 분석 결과는 <Table 5>와 같다. 
+<Table 5>에 따르면, 블록형 집단은 모델링, 일반
+화 능력에서 유의미한 차이가 나타나지 않았다. 분
+석, 구현능력은 p<.01 수준에서 유의미한 차이, 컴
+퓨팅 사고력 전체는 p<.001 수준에서 유의미한 차
+이를 보였으며 모든 부분에서 평균이 상승하였다.
+Factor
+(Score)
+Test
+N
+M
+SD
+t
+p
+Total
+(17)
+Pre
+21
+8.81
+3.64
+5.0***
+<.001
+Post
+21
+11.76
+3.69
+Analysis
+(6)
+Pre
+21
+3.62
+1.16
+11.5**
+.002
+Post
+21
+4.81
+1.36
+Modeling
+(6)
+Pre
+21
+3.52
+1.54
+23.0
+.057
+Post
+21
+4.05
+1.43
+Implemen
+tation (4)
+Pre
+21
+1.14
+1.28
+7.0**
+.006
+Post
+21
+2.10
+1.45
+Generaliz
+ation (1)
+Pre
+21
+0.52
+0.51
+11.0
+.058
+Post
+21
+0.81
+0.40
+*p<.05, **p<.01, ***p<.001
+<Table 5> CT Pre-post Test Analysis of Block-group
+텍스트형 언어를 활용한 학습자들의 컴퓨팅 사고
+력 사전·사후 검사 분석 결과는 <Table 6>과 같다. 
+<Table 6>에 따르면, 텍스트형 집단은 분석, 모델링 
+능력에서 유의미한 차이가 나타나지 않았다. 일반화 
+능력은 p<.05 수준에서 유의미한 차이, 컴퓨팅 사고
+력 전체와 구현 능력은 p<.001 수준에서 유의미한 
+차이를 보였으며, 모든 부분에서 평균이 상승하였다.
+Factor
+(Score)
+Test
+N
+M
+SD
+t
+p
+Total
+(17)
+Pre
+21
+9.62
+3.65
+-5.5*** <.001
+Post
+21
+12.10
+3.56
+Analysis
+(6)
+Pre
+21
+4.29
+1.45
+39.0
+.115
+Post
+21
+4.71
+1.15
+Modeling
+(6)
+Pre
+21
+3.67
+1.74
+34.0
+.226
+Post
+21
+4.10
+2.00
+Implemen
+tation (4)
+Pre
+21
+1.05
+1.20
+5.5***
+<.001
+Post
+21
+2.43
+1.33
+Generaliz
+ation (1)
+Pre
+21
+0.62
+0.50
+0.0*
+.025
+Post
+21
+0.86
+0.36
+*p<.05, **p<.01, ***p<.001
+<Table 6> CT Pre-post Test Analysis of Text-group
+프로그래밍 교육 프로그램 적용 후, 학습자들의 
+컴퓨팅 사고력 사후 검사 분석 결과는 <Table 7>
+과 같다.
+Factor
+(Score)
+Group
+N
+M
+SD
+t
+p
+Total
+(17)
+Block
+21
+11.76
+3.69
+-.719
+.476
+Text
+21
+12.10
+3.56
+Analysis
+(6)
+Block
+21
+4.81
+1.36
+160.5
+.125
+Text
+21
+4.71
+1.15
+Modeling
+(6)
+Block
+21
+4.05
+1.43
+208.5
+.769
+Text
+21
+4.10
+2.00
+Implemen
+tation (4)
+Block
+21
+2.10
+1.45
+229.5
+.822
+Text
+21
+2.43
+1.33
+Generaliz
+ation (1)
+Block
+21
+0.81
+0.40
+199.5
+.548
+Text
+21
+0.86
+0.36
+*p<.05, **p<.01, ***p<.001
+<Table 7> CT Post Test Analysis
+<Table 7>에 따르면 컴퓨팅 사고력 전체와 이를 
+구성하는 
+분석, 
+모델링, 
+구현, 
+일반화 
+능력 
+모두 
+p>.05이므로, 블록형 집단과 텍스트형 집단은 유의
+미한 차이가 없음을 확인하였다.
+연구 결과, 사전 검사에서 두 집단은 유의미한 차
+이가 없음을 확인하였으며, 사후 검사에서도 유의미
+한 차이가 없음을 확인하였다. 이를 통해 프로그래
+밍 교육에서 블록형 언어와 텍스트형 언어의 종류
+가 컴퓨팅 사고력 향상에 미치는 영향은 차이가 없
+음을 확인하였다.
+394   정보교육학회논문지 제28권 제4호
+4.2. 정의적 역량 변화 분석 결과
+정의적 역량 중, 인식과 참여 및 동기는 앞서 언
+급한 SW 교육에 대한 학생의 인식 조사를 활용해 
+사전·사후 검사를 실시하였고[17], 태도에 대해서는 
+학생들의 학습일지를 수집하여 NMF 알고리즘을 활
+용한 토픽모델링을 실시하였다. 
+4.2.1. 프로그래밍 교육에 대한 인식 변화 분석 
+블록형 언어를 활용한 프로그래밍 교육을 적용한 학습자
+들의 인식 사전·사후 검사 분석 결과는 <Table 8>과 같다.
+Factor
+(Score)
+Test
+N
+M
+SD
+t
+p
+Total
+(50)
+Pre
+21
+36.9
+6.30
+41.0*
+.015
+Post
+21
+40.8
+5.66
+Social
+Transtion
+(20)
+Pre
+21
+14.9
+2.64
+51.5
+.070
+Post
+21
+16.0
+2.27
+Usefulness
+(30)
+Pre
+21
+22.0
+3.99
+36.5*
+.017
+Post
+21
+24.9
+3.81
+*p<.05, **p<.01, ***p<.001
+<Table 8> Perception Pre-post Test Analysis of Blcok-group
+<Table 8>에 따르면, 블록형 집단은 사회 변화에
+서 유의미한 차이가 나타나지 않았고. 인식 전체와 
+유용성은 p<.05 수준에서 유의미한 차이를 보였으
+며, 모든 부분에서 평균이 상승하였다.
+텍스트형 언어를 활용한 프로그래밍 교육을 적용한 학습
+자들의 인식 사전·사후 검사 분석 결과는 <Table 9>와 같다.
+<Table 9>에 따르면, 텍스트형 집단은 인식 전체
+와 유용성에서 유의미한 차이가 나타나지 않았고, 
+사회 변화는 p<.01 수준에서 유의미한 차이를 보였
+으며, 특히 유용성은 평균 점수가 감소하였다.   
+4.2.2. 프로그래밍 교육에 대한 참여 및 동기 변화 분석
+블록형과 텍스트형 언어를 활용한 프로그래밍 교
+육을 적용한 학습자들의 참여 및 동기 사전·사후 검
+사 분석 결과는 <Table 10>과 같다. 
+Group
+(Score)
+Test
+N
+M
+SD
+t
+p
+Block
+(6)
+Pre
+21
+2.24
+1.58
+-.979
+.339
+Post
+21
+2.57
+1.69
+Text
+(6)
+Pre
+21
+2.43
+1.80
+2.257*
+.035
+Post
+21
+1.57
+1.78
+*p<.05, **p<.01, ***p<.001
+<Table 10> Participation & Motivation Pre-post Test 
+Analysis of Block-group and Text-group
+<Table 10>에 따르면, 블록형 집단은 참여 및 동
+기에서 유의미한 차이가 나타나지 않았고, 텍스트형 
+집단은 p<.05 수준에서 유의미한 차이가 나타났다. 
+블록형 집단의 평균 점수는 0.33 향상되었으나 텍스
+트형 집단의 평균 점수는 0.86 감소하였으며, 텍스
+트형 집단은 p<.05 수준에서 사후검사 점수가 사전
+검사 점수보다 낮은 것을 확인하였다.
+4.2.3. 프로그래밍 교육에 대한 태도 변화 분석 
+학생들의 태도에 미치는 영향을 자세히 알아보기 
+위하여 각 수업이 끝난 후 프로그래밍 교육에서 ‘흥
+미로웠던 점’, ‘어려웠던 점’, ‘앞으로 기대하는 점’에 
+대해 작성하게 하였다. 집단 및 주제별로 약 300개, 
+총 약 2000개의 문장 데이터를 수집하였다. 데이터
+를 수집한 뒤, konlpy 라이브러리로 데이터를 전처
+리하였으며, 빈도분석을 실시한 후 NMF 알고리즘
+을 적용한 토픽 모델링을 실시하였다. 세 가지 주제 
+중, ‘흥미로웠던 점’과 ‘어려웠던 점’에서 유의미한 
+결과를 확인할 수 있었다.
+<Table 11>은 ‘흥미로웠던 점’에 대한 토픽 모델링 
+결과이다. 주요 단어를 중심으로 해석해볼 때, 블록형 
+집단은 엔트리에서 블록으로 코딩하는 것과 직접 프
+로그램을 만드는 것에 흥미를 느꼈음을 확인하였다. 
+Factor
+(Score)
+Test
+N
+M
+SD
+t
+p
+Total
+(50)
+Pre
+21
+37.5
+5.07
+-.749
+.231
+Post
+21
+38.2
+7.18
+Social
+Transtion
+(20)
+Pre
+21
+14.2
+2.29
+-3.31**
+.002
+Post
+21
+15.6
+2.54
+<Table 9> Perception Pre-post Test Analysis of Text-group
+Usefulness
+(30)
+Pre
+21
+23.3
+3.35
+95.5
+.678
+Post
+21
+22.7
+5.01
+*p<.05, **p<.01, ***p<.001
+블록형 프로그래밍 언어와 텍스트형 프로그래밍 언어의 교육적 효과 비교 분석   395
+텍스트형 집단은 파이썬으로 다양하고 새로운 주제의 
+프로그래밍을 하는 것에 흥미를 느꼈음을 확인하였다.
+Num
+ber
+Block
+Text
+1
+재밌었다, 챌린지, 엔트리, 
+코딩, 하는게, 쉬워져서, 
+블록, 되어서, 직접, 활동
+재밌었다, 프로그래밍, 
+파이썬, 그런거, 들고, 코딩, 
+구구단, 입력, 보다, 하는게
+2
+좋았다, 만들기, 쉬웠다, 
+암호, 보다, 직접, 코딩,   
+만들 수, 오늘, 변수
+배워서, 새로운, 입력, 
+좋았다, 뿌듯했다, 코딩, 
+신기하고, 새로운 것을
+3
+블록, 다양한, 사용, 
+프로그램, 새로운, 활용, 
+판단, 만든, 논리, 연산
+좋았다, 오늘, 프로그래밍, 
+역시, 쉬웠다, 같아서, 너무, 
+챌린지, 복습, 신기했다
+<Table 11> Topic Modeling(NMF) Results for ‘Interest’
+<Table 12>는 ‘어려웠던 점’에 대한 토픽 모델링 
+결과이다. 주요 단어를 중심으로 해석해볼 때, 블록
+형 집단은 블록을 찾아서 코딩하는 것, 로그인하는 
+것, 챌린지를 해결하는 것에 어려움을 느꼈음을 확
+인하였다. 텍스트형 집단은 타자를 치며 코드를 따
+라하는 것과 새로운 것을 익히는 것에 어려움을 느
+꼈음을 확인하였다.
+  
+Num
+ber
+Block
+Text
+1
+없었다, 힘들었다, 않았다, 
+재밌었다, 오늘, 별로, 겹치, 
+어려운게, 어려, 만드는것이
+어려웠다, 마지막, 새로운, 
+너무, day, 살짝, 바꾸는게, 
+구구단, 복잡했다, 하는게
+2
+어려웠다, 힘들었다, 블록, 
+점도, 뭔가, 코딩, 찾기, 살짝, 
+이해, 찾는
+없었다, 딱히, 복습, 다른건, 
+여서, 오늘, 챌린지, 이나, 
+때문, 치는
+3
+챌린지, 만들기, 변수, 너무, 
+어려, 로그인, 프로그램, 
+나눗셈, 어려웠다, 뭔가
+힘들었다, 너무, 보드, 입력, 
+코딩, 타자, 복잡했다, 
+따라가기가, 하는, 재밌었다
+<Table 12> Topic Modeling(NMF) Results for "Difficulty"
+5. 결론 및 제언
+본 연구에서는 프로그래밍 교육 프로그램 14차시
+를 초등학교 6학년 한 학급에는 블록형 언어를, 한 
+학급에는 텍스트형 언어를 활용하여 적용하고 컴퓨
+팅 사고력과 프로그래밍 교육에 대한 정의적 역량
+에 미치는 영향을 비교 분석하였다.
+본 연구 목적 달성을 위해 6학년 두 학급을 블록
+형 집단과 텍스트형 집단으로 나누어 사전·사후 검
+사를 진행하고 학습일지 데이터를 수집하였다. 이를 
+통해 얻은 결론은 다음과 같다.
+첫째, 블록형 언어와 텍스트형 언어를 활용한 프
+로그래밍 교육은 초등학생의 컴퓨팅 사고력에 긍정
+적인 영향을 미치는 것으로 나타났다. 컴퓨팅 사고
+력의 4가지 구성요소 모두 평균 점수가 향상되었으
+며, 특히 구현 능력에서 유의미한 차이를 보였다.
+둘째, 초등학교 프로그래밍 교육에서 블록형 언어 
+및 텍스트형 언어의 종류가 컴퓨팅 사고력 향상에 
+미치는 영향은 차이가 없는 것으로 나타났다. 프로
+그래밍 교육에서 학생들의 컴퓨팅 사고력 향상에는 
+프로그래밍 언어의 종류가 중요한 것이 아니라 교
+육 프로그램의 내용이 중요한 것으로 판단된다.
+셋째, 초등학교 프로그래밍 교육에서 블록형 언어
+는 프로그래밍 교육에 대한 인식과 참여 및 동기에 
+긍정적 영향을 미치며, 텍스트형 언어는 프로그래밍 
+교육에 대한 인식과 참여 및 동기에 긍정적 영향을 
+미치지 못하는 것으로 나타났다. 학생들의 정의적 
+역량을 고려한 프로그래밍 교육을 설계하려면, 텍스
+트형 언어보다 블록형 언어를 활용하는 것이 더 효
+과적일 것으로 판단된다. 
+넷째, 초등학교 프로그래밍 교육에서 블록형과 텍스트형 
+언어가 
+프로그래밍 
+교육에 
+대한 
+태도에 
+미치는 
+영향을 
+NMF 알고리즘을 활용한 토픽 모델링으로 질적 분석하였다.
+본 연구는 서울특별시 M 초등학교의 6학년 2학
+급만을 대상으로 적용하였기에 모든 학생에게 일반
+화하기에는 어려움이 있다. 따라서 연구 대상의 크
+기를 키우거나 다양한 학년군을 대상으로 한 후속 
+연구를 진행할 필요가 있다.
+또한, 본 연구는 주로 양적 분석 방법을 활용하여 
+학생들의 정의적 역량에 미치는 영향을 분석하였다. 
+정의적 역량을 분석할 때는 양적 분석뿐만 아니라 
+질적 분석을 통해 학생들의 생각을 심도 있게 분석
+할 필요가 있다. 따라서 후속 연구로 정의적 역량과 
+관련된 더 많은 질적 연구를 진행할 필요가 있다.
+프로그래밍 교육에서 블록형 및 텍스트형 언어 
+활용에 대한 논의는 끊임없이 이루어져 왔다. 블록
+형 언어와 텍스트형 언어 모두 장단점이 명확하기 
+때문에 프로그래밍 교육의 흐름에 따라 주로 사용
+396   정보교육학회논문지 제28권 제4호
+되는 언어는 계속해서 바뀌고 있다. 본 연구의 결과
+가 프로그래밍 교육에서 프로그래밍 언어를 선택할 
+때 의미 있는 자료가 될 수 있기를 기대한다.
+참고문헌
+[1] Korean Ministry of Education (2022). 2022 Revised 
+Curriculum General Guidelines.
+[2] Korean Ministry of Education (2022). 2022 Revised 
+Curriculum of Practical Arts/Information.
+[3] So, M. H., & Kim, J. M. (2016). Transference from 
+learning block type programming to learning text 
+type 
+programming. 
+The 
+Journal 
+of 
+Korean 
+Association of Computer Education, 19(6), 55-68.
+[4] Ahn, K. M., Sohn, W. S., & Choy, Y. C. (2011). 
+The effect of scratch programming education on 
+learning-flow and programming ability for elemen-
+tary students. Journal of The Korean Association 
+of Information Education, 15(1), 1-10.
+[5] Lee, D. G., Yi, S. Y., & Lee, Y. J. (2022). A study of 
+domestic programming education in elementary school 
+based on systematic literature review. The Journal of 
+Korean Association of Computer Education, 25(6), 35-50.
+[6] Lee, K. S. (2021). Analysis of the moderating effects 
+of programming languages and the relationship between 
+learners’ learning characteristics and achievements. 
+Journal of Digital Convergence, 19(4), 49-55.
+[7] Kim, J. H., & Kim, D. H. (2016). Development of phys-
+ical computing curriculum in elementary schools for 
+computational thinking. Journal of The Korean 
+Association of Information Education, 20(1), 69-82.
+[8] Lee, S. H., & Ann, S. H. (2020). Analysis of student 
+perception of learning block-type educational pro-
+gramming tools in online learning environment. 
+Journal of The Korean Association of Information 
+Education, 24(6), 519-528.
+[9] Chang, W. Y., & Kim, S. S. (2020). Differences in 
+self-efficacy between block and textual language 
+in programming education using online judge. The 
+Journal 
+of 
+Korean 
+Association 
+of 
+Computer 
+Education, 23(4), 23-33.
+[10] Go, H. N., & Lee, Y. J. (2023). Development and 
+application of python teaching·learning strategies 
+with block programming language as a advanced 
+organizer. Journal of Learner-Centered Curriculum 
+and Instruction, 23(6), 317-328.
+[11] Wing, 
+J. 
+M. 
+(2006). 
+Computational 
+thinking. 
+Communications of the ACM, 49(3), 33-35.
+[12] ISTE & CSTA. (2011). Operational Defivition of Computational 
+Thinking for K-12 Education. Retrieved from https://cdn.ist-
+e.org/www-root/Computational_Thinking_Operational_Defi
+nition_ISTE.pdf. (2024.05.05.)
+[13] KOFAC (2014), A basic study on the introduction 
+of computational thinking in primary and secon-
+dary levels.
+[14] Korean Ministry of Education (2015). Software ed-
+ucation operational guidelines.
+[15] KERIS (2017). A study on the development of software 
+education effectiveness measurement tools in 2017.
+[16] Lim, G. W., & Kim, C. S. (2019). The effect of 
+modular robot programming education on learning 
+motivation of informatics curriculum. The Journal 
+of Korean Association of Computer Education, 
+22(1), 79-86.
+[17] KERIS (2017). A study on the status and effective-
+ness of software education research schools in 2017.
+[18] Brennan, K., & Resnick, M. (2012). New frame-
+works for studying and assessing the development 
+of computational thiking. Paper presented at annual 
+American 
+Educational 
+Research 
+Association 
+meeting, Vancouver, BC, Canada.
+[19] Choi, H. S., Jeong, I. K., & So, H. J. (2014). 
+Computational thinking framework-based analy-
+sis of afterschool scratch team project experiences. 
+Journal of The Korean Association of Information 
+Education, 18(4), 549-558.
+[20] Kim, K. S.,  et al  (2020), Development a standard 
+curriculum model of next-generation software 
+education. Journal of The Korean Association of 
+Information Education, 24(4), 337-367.
+블록형 프로그래밍 언어와 텍스트형 프로그래밍 언어의 교육적 효과 비교 분석   397
+저자소개
+최 현 재
+2019 서울교육대학교 초등교육
+과(교육학사)
+2019～현재 서울마천초등학교 
+교사
+2022～현재 서울교육대학교 교
+육전문대학원 컴퓨터교육
+과 석사과정
+관심분야 : 정보교육, 프로그래
+밍 교육, 데이터과학 교육, 
+교육용 프로그래밍 언어 
+e-mail : present2926@sen.go.kr
+김 갑 수
+1985 서울대학교 계산통계(학사)
+1987 서울대학교 전산학(석사)
+1996 서울대학교 전산학(박사)
+1987～1992 삼성전자 과장
+1995～1998 서경대학교 조교수
+1998～현재 서울교육대학교 교수
+2016.3～2018.2 
+한국정보교육
+학회 회장
+2017.9～현재 서울교대 과학영재
+교육원장, SW영재교육원장
+2020.3～2023.2 
+한국과학영재
+교육학회회장
+2019.3～2023.2 
+한국에너지기
+후변화 교육학회 회장
+관심분야 : 컴퓨터교육, 인공지
+능교육, 정보영재
+e-mail : kskim@sune.ac.kr
