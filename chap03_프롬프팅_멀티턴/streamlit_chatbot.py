@@ -19,7 +19,7 @@ def get_ai_response(messages_dict):
         )
     
     response = client.models.generate_content(
-        model="models/gemini-2.5-flash-lite",
+        model="models/gemini-3.1-flash-lite",
         contents=history_list,  # 누적된 대화 기록 리스트를 통째로 전달
         config=types.GenerateContentConfig(
             temperature=0.9,
